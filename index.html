@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html ng-app="app">
+    <head>
+        <title>TODO supply a title</title>
+    </head>
+    <body >
+        <div  ng-controller="ctrUsuarios">
+
+            <input type="text" placeholder="Nombre" 
+                   ng-model="objUsuarios.nombre"/>
+            <input type="text" placeholder="Direccion"
+                   ng-model="objUsuarios.direccion"/>
+            <input type="text" placeholder="Edad"
+                   ng-model="objUsuarios.edad"/>
+            <input type="text" placeholder="Tipo Sangre"
+                   ng-model="objUsuarios.tipoSangre"/>
+            <br/>
+            <button ng-click="obtenerInformacion()"  >ObtenerInformacion</button>
+            <br/>
+            <label>Nombre: {{objUsuarios.nombre}}    </label>
+            <br>
+            <label>Direccion: {{objUsuarios.direccion}}</label>
+            <br>
+            <input type="text" ng-model="filtro" placeholder="Buscar"/>
+            <table>
+                <thead>
+                <th>Nombre</th>
+                <th>Direcion</th>
+                <!--<th>Edad</th>-->
+                </thead>
+
+                <tr ng-repeat="objUsuario in lstUsuarios|filter:filtro" 
+                    >
+                    <td>{{objUsuario.nombre}}</td>
+                    <td>{{objUsuario.direccion}}</td>
+                    <!--<td>{{objUsuario.edad}}</td>-->
+                </tr>
+            </table>
+
+        </div>
+        <script src="js/angular.min.js"></script>
+        <script src="config/config.js"></script>
+        <script src="controllers/ctrUsurios.js"></script>
+    </body>
+</html>
